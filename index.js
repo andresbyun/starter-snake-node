@@ -27,7 +27,9 @@ app.post('/start', (request, response) => {
 
   // Response data
   const data = {
-    color: '#DFFF00',
+    color: '#AD3058',
+    headType: 'evil',
+    tailType: 'hook',
   }
 
   return response.json(data)
@@ -36,6 +38,8 @@ app.post('/start', (request, response) => {
 // Handle POST request to '/move'
 app.post('/move', (request, response) => {
   // NOTE: Do something here to generate your move
+
+  console.log(request)
 
   // Response data
   const data = {
