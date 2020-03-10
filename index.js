@@ -9,6 +9,8 @@ const {
   poweredByHandler
 } = require('./handlers.js')
 
+const { strategy } = require('./logic.js');
+
 // For deployment to Heroku, the port needs to be set using ENV, so
 // we check for the port number in process.env
 app.set('port', (process.env.PORT || 9001))
@@ -38,15 +40,16 @@ app.post('/start', (request, response) => {
 // Handle POST request to '/move'
 app.post('/move', (request, response) => {
   // NOTE: Do something here to generate your move
+  const { body } = request;
 
-  console.log(request)
+  let move = strategy(body);
 
   // Response data
   const data = {
-    move: 'up', // one of: ['up','down','left','right']
-  }
+    move,
+  };
 
-  return response.json(data)
+  return response.json(data);
 })
 
 app.post('/end', (request, response) => {
