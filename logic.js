@@ -3,7 +3,6 @@ const strategy = (game) => {
     const { body } = you;
 
     const head = body[0];
-    console.log(`Currently at: x = ${head.x}, y = ${head.y} with ${you.health} on turn ${game.turn}`);
     
     if (head.y === 0 && head.x !== 0) {
         return 'left';
